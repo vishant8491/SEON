@@ -8,7 +8,7 @@ import mongoose from 'mongoose'
 import projectModel from './models/project.model.js'
 import {generateResult} from './services/ai.service.js';
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 8080;
 
 const server = http.createServer(app);
 
@@ -86,6 +86,6 @@ io.on('connection', socket => { // whenever a new connection(new user connects) 
      });
 });
 
-server.listen(port, () => {
+server.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
 })
